@@ -16,25 +16,33 @@ $
 # Command Line History (newest to oldest):
 :wq
 :q
-:!
-:help NERDTree
+:! rspec
+:!ruby -Ilib ./bin/unixoid-challenge
 :w
+:q!
+:!rspec
+:!
+:!!
+:e test.rb
+:sh
+:sh\
+:gt
+:help ctrlp-mappings
+:help ctrlp-commands
+:help NERDTree
 :! stream-adventure
 :! stream-adventure verify program.js
-:sh
 :sh stream-adventure
-:q!
-:!!
 :!q
-:help taglist
-:TlistToggle
-:!learnyounode verify program.js
-:!learnyournode verify program.js
 
 # Search String History (newest to oldest):
+?/focusk
+?/rs
+? def\%#
 ? \r$
 ? fun\%#
 ??dat
+?/nerd
 
 # Expression History (newest to oldest):
 
@@ -43,47 +51,85 @@ $
 # Input Line History (newest to oldest):
 
 # Registers:
-"0	CHAR	0
-	err
+"0	LINE	0
+	raise "spell"
 "1	LINE	0
-	var write = function write (buffer) {
-	  var buffer = buffer.toString();
-	  return buffer.toUpperCase();
-	}
+	raise "spell"
 "2	LINE	0
-	  // body...
+	
 "3	LINE	0
-	console.log('beep boop');
+	
 "4	LINE	0
 	
 "5	LINE	0
-	
+	# class method factoriesx
 "6	LINE	0
-	if (\t) {};
+	# singleton
 "7	LINE	0
-	
+	       #     it 'indicates a successful result' do
+	               expect(subject.run_spec).to eq("Successful result")
+	           #     end
+	             #
+	               #   end
 "8	LINE	0
-	,o
+	       #     it 'indicates a successful result' do
+	         #       expect(subject.run_spec).to eq("Successful result")
+	           #     end
+	             #
+	               #   end
 "9	LINE	0
-	console.log('beb');
+	       #     it 'indicates a successful result' do
+	         #       expect(subject.run_spec).to eq("Successful result")
+	           #     end
+	             #
+	               #   end
 ""-	CHAR	0
-	rails
+	documentation
 
 # File marks:
-'0  303  26  ~/.vimrc
-'1  6  23  ~/Code/angular/config.ru
-'2  4  11  ~/Code/angular/Gemfile
-'3  1  0  ~/Code/angular/Gemfile
-'4  1  0  ~/Code/Walkthroughs/.git/COMMIT_EDITMSG
-'5  1  0  ~/Code/Walkthroughs/.git/MERGE_MSG
-'6  6  41  ~/Code/node-stream/program.js
-'7  10  33  ~/Code/node-stream/program.js
-'8  8  12  ~/Code/node-stream/program.js
-'9  2  17  ~/.homesick/repos/pickled-vim/home/.vim/snippets/javascript.snippets
+'0  2  0  ~/.rspec
+'1  1  6  ~/.rspec
+'2  315  1  ~/.vimrc
+'3  1  0  ~/Code/unixoid-challenge/.vimrc
+'4  3  10  ~/Code/unixoid-challenge/Gemfile
+'5  7  0  ~/Code/unixoid-challenge/bin/unixoid-challenge
+'6  19  8  ~/Code/unixoid-challenge/spec/unixoid/rspec_spec.rb
+'7  3  14  ~/test.rb
+'8  1  0  ~/Desktop/Heroku and Postgres.mov
+'9  3  0  ~/Code/angular/.buildpacks
 
 # Jumplist (newest first):
--'  303  26  ~/.vimrc
+-'  2  0  ~/.rspec
+-'  1  6  ~/.rspec
+-'  315  1  ~/.vimrc
 -'  316  0  ~/.vimrc
+-'  1  0  ~/Code/unixoid-challenge/.vimrc
+-'  3  10  ~/Code/unixoid-challenge/Gemfile
+-'  10  28  ~/Code/unixoid-challenge/lib/unixoid/runner.rb
+-'  4  5  ~/Code/unixoid-challenge/lib/unixoid/challenge.rb
+-'  4  13  ~/Code/unixoid-challenge/lib/unixoid.rb
+-'  1  0  ~/Code/unixoid-challenge/lib/unixoid/challenge.rb
+-'  7  0  ~/Code/unixoid-challenge/bin/unixoid-challenge
+-'  51  0  ~/Code/unixoid-challenge/lib/unixoid.rb
+-'  2  0  ~/Code/unixoid-challenge/lib/unixoid.rb
+-'  9  12  ~/Code/unixoid-challenge/lib/unixoid.rb
+-'  11  24  ~/Code/unixoid-challenge/spec/unixoid/challenge_spec.rb
+-'  8  12  ~/Code/unixoid-challenge/lib/unixoid.rb
+-'  19  8  ~/Code/unixoid-challenge/spec/unixoid/rspec_spec.rb
+-'  1  0  ~/Code/unixoid-challenge/spec/unixoid/rspec_spec.rb
+-'  22  4  ~/Code/unixoid-challenge/spec/unixoid/rspec_spec.rb
+-'  9  0  ~/Code/unixoid-challenge/spec/unixoid/rspec_spec.rb
+-'  17  7  ~/Code/unixoid-challenge/spec/unixoid/rspec_spec.rb
+-'  16  0  ~/Code/unixoid-challenge/spec/unixoid/rspec_spec.rb
+-'  20  21  ~/Code/unixoid-challenge/spec/unixoid/rspec_spec.rb
+-'  9  8  ~/Code/unixoid-challenge/lib/unixoid/runner.rb
+-'  1  0  ~/Code/unixoid-challenge/lib/unixoid/runner.rb
+-'  3  14  ~/test.rb
+-'  1  3  ~/test.rb
+-'  5  1  ~/test.rb
+-'  1  0  ~/Desktop/Heroku and Postgres.mov
+-'  3  0  ~/Code/angular/.buildpacks
+-'  1  0  ~/Code/angular/.buildpacks
 -'  6  23  ~/Code/angular/config.ru
 -'  1  0  ~/Code/angular/config.ru
 -'  4  11  ~/Code/angular/Gemfile
@@ -101,7 +147,7 @@ $
 -'  1  0  ~/.homesick/repos/pickled-vim/home/.vim/NERD_tree_2
 -'  20  2  ~/.homesick/repos/pickled-vim/home/.vim/NERD_tree_1
 -'  1  0  ~/.homesick/repos/pickled-vim/home/.vim/NERD_tree_1
--'  315  49  ~/.vimrc
+-'  295  49  ~/.vimrc
 -'  1  0  ~/Code/temp_yelp/:q
 -'  5  10  ~/Code/temp_yelp/app/controllers/restaurants_controller.rb
 -'  1  0  ~/Code/temp_yelp/app/controllers/restaurants_controller.rb
@@ -116,9 +162,9 @@ $
 -'  3  0  ~/Code/course/pills/mvc.md
 -'  3  0  ~/Code/course/pills.md
 -'  1  0  ~/Code/course/pills.md
--'  314  1  ~/.vimrc
+-'  294  1  ~/.vimrc
 -'  1  0  ~/.vimrc
--'  541  43  ~/.vimrc
+-'  526  43  ~/.vimrc
 -'  1  6  ~/blah.rb
 -'  1  0  ~/Code/temp_yelp/program.js
 -'  1  0  ~/program.js
@@ -150,52 +196,318 @@ $
 -'  1  0  ~/program.js
 -'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
 -'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/program.js
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/program.js
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  6  ~/blah.rb
--'  1  0  ~/Code/temp_yelp/program.js
--'  1  0  ~/program.js
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/program.js
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/program.js
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/program.js
 -'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
 -'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
 
 # History of marks within files (newest to oldest):
 
+> ~/.rspec
+	"	2	0
+	^	2	1
+	.	2	1
+	+	1	7
+	+	2	1
+
 > ~/.vimrc
-	"	303	26
-	^	303	27
-	.	304	0
-	+	542	0
-	+	317	0
+	"	315	1
+	^	315	2
+	.	315	2
+	+	554	0
+	+	329	0
+	+	328	0
+	+	305	0
+	+	287	22
+	+	304	27
+	+	305	0
+	+	1	61
+	+	307	31
+	+	308	2
 	+	316	0
-	+	304	0
-	+	286	22
-	+	303	27
-	+	304	0
+	+	315	35
+	+	313	0
+	+	315	2
+
+> ~/Code/unixoid-challenge/.vimrc
+	"	1	0
+
+> ~/Code/unixoid-challenge/lib/unixoid/challenge.rb
+	"	4	5
+	^	4	6
+	.	4	6
+	+	3	12
+	+	4	6
+
+> ~/Code/unixoid-challenge/ControlP
+	"	3	0
+	.	2	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	2	0
+
+> ~/Code/unixoid-challenge/lib/unixoid.rb
+	"	4	13
+	^	1	24
+	.	1	23
+	+	2	25
+	+	7	12
+	+	52	0
+	+	2	27
+	+	1	23
+
+> ~/Code/unixoid-challenge/lib/unixoid/runner.rb
+	"	10	28
+	^	10	29
+	.	10	28
+	+	10	0
+	+	10	19
+	+	9	25
+	+	10	28
+
+> ~/Code/unixoid-challenge/Gemfile
+	"	3	10
+	.	3	10
+	+	3	10
+
+> ~/Code/unixoid-challenge/spec/unixoid/runner_spec.rb
+	"	4	0
+
+> ~/Code/unixoid-challenge/spec/unixoid_spec.rb
+	"	10	30
+	^	10	31
+	.	10	30
+	+	10	30
+
+> ~/Code/unixoid-challenge/spec/unixoid/challenge_spec.rb
+	"	11	24
+	^	6	32
+	.	17	0
+	+	6	32
+	+	17	0
+
+> ~/Code/unixoid-challenge/bin/unixoid-challenge
+	"	7	0
+	.	6	0
+	+	6	0
+
+> ~/Code/unixoid-challenge/spec/unixoid/rspec_spec.rb
+	"	19	8
+	^	18	11
+	.	19	0
+	+	3	13
+	+	1	25
+	+	4	17
+	+	6	29
+	+	5	0
+	+	20	23
+	+	20	0
+	+	20	0
+	+	16	50
+	+	16	0
+	+	20	0
+	+	17	0
+	+	16	6
+	+	17	7
+	+	4	0
+	+	18	8
+	+	18	20
+	+	19	10
+	+	18	11
+	+	19	0
+
+> ~/test.rb
+	"	3	14
+	^	3	18
+	.	3	17
+	+	5	0
+	+	1	0
+	+	2	0
+	+	2	2
+	+	1	12
+	+	2	10
+	+	3	17
+
+> ~/Desktop/Heroku and Postgres.mov
+	"	1	0
+
+> ~/ControlP
+	"	7	0
+	.	2	0
+	+	1	0
+	+	1	0
+	+	2	0
+
+> ~/Code/angular/.buildpacks
+	"	3	0
+	^	3	0
+	.	2	51
+	+	2	51
+
+> ~/Code/angular/ControlP
+	"	1	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Code/angular/application.rb
+	"	4	23
+	^	4	24
+	.	4	23
+	+	1	0
+	+	4	23
+
+> ~/Code/angular/.vimrc
+	"	1	0
 
 > ~/Code/angular/config.ru
 	"	6	23
