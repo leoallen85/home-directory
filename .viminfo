@@ -8,41 +8,48 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/dat
+~MSle0~/run
 
 # Last Substitute String:
 $
 
 # Command Line History (newest to oldest):
-:wq
+:ruby %w[unixoid-challenge unixoid-debug]
+:!git push
+:!gem build unixoid-challenge.gemspec
+:! git push
+:! git commit -am "Allows expected outcodes to be specified. Closes \#21"
+:!git commit -am "Allows expected outcodes to be specified. Closes \#21"
+:Git commit -am "Allows expected outcodes to be specified. Closes \#21"
+:!say 'its christmas bitches'
+:reg
 :q
-:! rspec
-:!ruby -Ilib ./bin/unixoid-challenge
-:w
-:q!
-:!rspec
-:!
-:!!
-:e test.rb
-:sh
-:sh\
-:gt
+:wq
+:wwq
+:!gitx
+:helptags ~/.vim/bundle/ctrlp.vim/doc
 :help ctrlp-mappings
-:help ctrlp-commands
-:help NERDTree
-:! stream-adventure
-:! stream-adventure verify program.js
-:sh stream-adventure
-:!q
+:Git push
+:Git
+:!sh
+:!ls ~/.vim/bundle/vim-git/
+:!ls ~.vim/bundles
 
 # Search String History (newest to oldest):
+?/run
+?/atte
+?/attej
+?/run_chall
+? def\%#
+?/colors
 ?/focusk
 ?/rs
-? def\%#
 ? \r$
 ? fun\%#
 ??dat
 ?/nerd
+?/:wa
+?/us
 
 # Expression History (newest to oldest):
 
@@ -51,195 +58,256 @@ $
 # Input Line History (newest to oldest):
 
 # Registers:
-"0	LINE	0
-	raise "spell"
+""0	CHAR	0
+	"
 "1	LINE	0
-	raise "spell"
+	      opts = { outcodes: [0,1] } 
 "2	LINE	0
+	      
 	
+	    
 "3	LINE	0
 	
 "4	LINE	0
 	
 "5	LINE	0
-	# class method factoriesx
+	
+	  def self.run
+	    results = run_challenge
+	    final_result(results)
+	    puts "Submitting your results to Makers Academy..."
+	    push_to_github(Challenge::RESULTS_FILE)
+	  end
+	
+	  def self.debug
+	    puts "Submitting your history to Makers Academy so we can help you debug..."
+	    create_history_file
+	    push_to_github('commands.txt')
+	  end
+	  
+	  private
+	
+	  class << self
+	    
+	    def push_to_github(file)
+	      github = Github.create_repo
+	      auth_fail! unless github.authenticated?
+	      puts "Submitting..."
+	      Git.submit(file, github)
+	      puts "Submitted!"
+	    end
+	
+	    def run_challenge
+	      challenge = Challenge.run_specs
+	      ChallengeResult.new(challenge)
+	    end
+	
+	    def create_history_file
+	      Runner.run('cp ~/.bash_history commands.txt')
+	    end
+	
+	    def final_result(results)
+	      puts render_results(results)
+	    end
+	
+	    def auth_fail!
+	      puts 'Incorrect login details. Please run unixoid-challenge again'.red 
+	      exit 1
+	    end
+	
+	    def render_results(results)
+	      case results.status
+	      when :complete
+	        'Congratulations, you have successfully completed the Unixoid Challenge!'.green
+	      when :attempted
+	        attempted(results).yellow
 "6	LINE	0
-	# singleton
+	Unixoid.run
 "7	LINE	0
-	       #     it 'indicates a successful result' do
-	               expect(subject.run_spec).to eq("Successful result")
-	           #     end
-	             #
-	               #   end
+	puts 'running'
 "8	LINE	0
-	       #     it 'indicates a successful result' do
-	         #       expect(subject.run_spec).to eq("Successful result")
-	           #     end
-	             #
-	               #   end
+	
 "9	LINE	0
-	       #     it 'indicates a successful result' do
-	         #       expect(subject.run_spec).to eq("Successful result")
-	           #     end
-	             #
-	               #   end
-""-	CHAR	0
-	documentation
+	  private
+"-	CHAR	0
+	"
 
 # File marks:
-'0  2  0  ~/.rspec
-'1  1  6  ~/.rspec
-'2  315  1  ~/.vimrc
-'3  1  0  ~/Code/unixoid-challenge/.vimrc
-'4  3  10  ~/Code/unixoid-challenge/Gemfile
-'5  7  0  ~/Code/unixoid-challenge/bin/unixoid-challenge
-'6  19  8  ~/Code/unixoid-challenge/spec/unixoid/rspec_spec.rb
-'7  3  14  ~/test.rb
-'8  1  0  ~/Desktop/Heroku and Postgres.mov
-'9  3  0  ~/Code/angular/.buildpacks
+'0  6  24  ~/Code/unixoid-challenge/unixoid-challenge.gemspec
+'1  1  0  ~/Code/unixoid-challenge/.git/MERGE_MSG
+'2  12  6  ~/Code/unixoid-challenge/lib/unixoid/challenge.rb
+'3  4  0  ~/Code/unixoid-challenge/Gemfile
+'4  1  0  ~/Code/unixoid-challenge/Gemfile
+'5  11  13  ~/Code/unixoid-challenge/lib/unixoid.rb
+'6  8  0  ~/Code/unixoid-challenge/challenge_spec.rb
+'7  1  0  ~/Code/unixoid-challenge/[Vundle] Installer
+'8  2  13  ~/Code/unixoid-challenge/foo.sh
+'9  1  14  ~/Code/unixoid-challenge/foo.sh
 
 # Jumplist (newest first):
+-'  6  24  ~/Code/unixoid-challenge/unixoid-challenge.gemspec
+-'  5  2  ~/Code/unixoid-challenge/unixoid-challenge.gemspec
+-'  3  3  ~/Code/unixoid-challenge/unixoid-challenge.gemspec
+-'  6  13  ~/Code/unixoid-challenge/lib/unixoid/challenge.rb
+-'  12  6  ~/Code/unixoid-challenge/lib/unixoid/challenge.rb
+-'  24  0  ~/Code/unixoid-challenge/lib/unixoid/github.rb
+-'  29  41  ~/Code/unixoid-challenge/spec/unixoid/challenge_spec.rb
+-'  31  45  ~/Code/unixoid-challenge/spec/unixoid/runner_spec.rb
+-'  32  8  ~/Code/unixoid-challenge/spec/unixoid/runner_spec.rb
+-'  27  91  ~/Code/unixoid-challenge/spec/unixoid/runner_spec.rb
+-'  8  31  ~/Code/unixoid-challenge/spec/unixoid/runner_spec.rb
+-'  51  45  ~/Code/unixoid-challenge/spec/unixoid/runner_spec.rb
+-'  1  0  ~/Code/unixoid-challenge/spec/unixoid/runner_spec.rb
+-'  1  0  ~/Code/unixoid-challenge/.git/MERGE_MSG
+-'  1  0  ~/Code/unixoid-challenge/commands.txt
+-'  1  0  ~/Code/unixoid-challenge/Gemfile.lock
+-'  4  0  ~/Code/unixoid-challenge/Gemfile
+-'  1  0  ~/Code/unixoid-challenge/Gemfile
+-'  56  10  ~/Code/unixoid-challenge/lib/unixoid/controller.rb
+-'  70  0  ~/Code/unixoid-challenge/lib/unixoid/controller.rb
+-'  3  0  ~/Code/unixoid-challenge/lib/unixoid/controller.rb
+-'  2  0  ~/Code/unixoid-challenge/lib/unixoid/controller.rb
+-'  1  27  ~/Code/unixoid-challenge/lib/unixoid.rb
+-'  2  0  ~/Code/unixoid-challenge/lib/unixoid.rb
+-'  10  0  ~/Code/unixoid-challenge/lib/unixoid.rb
+-'  11  30  ~/Code/unixoid-challenge/lib/unixoid/challenge.rb
+-'  4  7  ~/Code/unixoid-challenge/lib/unixoid/challenge.rb
+-'  11  8  ~/Code/unixoid-challenge/lib/unixoid.rb
+-'  8  0  ~/Code/unixoid-challenge/challenge_spec.rb
+-'  1  0  ~/Code/unixoid-challenge/challenge_spec.rb
+-'  1  0  ~/Code/unixoid-challenge/[Vundle] Installer
+-'  5  0  ~/Code/unixoid-challenge/challenge_spec.rb
+-'  7  0  ~/Code/unixoid-challenge/challenge_spec.rb
+-'  2  13  ~/Code/unixoid-challenge/foo.sh
+-'  1  14  ~/Code/unixoid-challenge/foo.sh
+-'  12  16  ~/.vimrc
+-'  12  4  ~/Code/unixoid-challenge/lib/unixoid/colorize.rb
+-'  14  10  ~/Code/unixoid-challenge/lib/unixoid/colorize.rb
+-'  1  0  ~/Code/unixoid-challenge/lib/unixoid/colorize.rb
+-'  13  2  ~/Code/unixoid-challenge/lib/unixoid/colorize.rb
+-'  12  30  ~/Code/unixoid-challenge/spec/unixoid_spec.rb
+-'  1  0  ~/Code/unixoid-challenge/spec/unixoid_spec.rb
+-'  13  0  ~/Code/unixoid-challenge/lib/unixoid/runner.rb
+-'  15  28  ~/Code/unixoid-challenge/unixoid.gemspec
+-'  12  0  ~/Code/unixoid-challenge/unixoid.gemspec
+-'  2  0  ~/Code/unixoid-challenge/lib/unixoid/runner.rb
+-'  12  36  ~/Code/unixoid-challenge/spec/unixoid/runner_spec.rb
+-'  13  32  ~/Code/unixoid-challenge/unixoid.gemspec
+-'  3  6  ~/Code/unixoid-challenge/Gemfile
+-'  1  0  ~/Code/unixoid-challenge/unixoid.gemspec
+-'  1  0  ~/.git/MERGE_MSG
 -'  2  0  ~/.rspec
 -'  1  6  ~/.rspec
--'  315  1  ~/.vimrc
--'  316  0  ~/.vimrc
+-'  314  1  ~/.vimrc
+-'  315  0  ~/.vimrc
 -'  1  0  ~/Code/unixoid-challenge/.vimrc
--'  3  10  ~/Code/unixoid-challenge/Gemfile
+-'  5  10  ~/Code/unixoid-challenge/Gemfile
 -'  10  28  ~/Code/unixoid-challenge/lib/unixoid/runner.rb
--'  4  5  ~/Code/unixoid-challenge/lib/unixoid/challenge.rb
--'  4  13  ~/Code/unixoid-challenge/lib/unixoid.rb
+-'  5  13  ~/Code/unixoid-challenge/lib/unixoid.rb
 -'  1  0  ~/Code/unixoid-challenge/lib/unixoid/challenge.rb
 -'  7  0  ~/Code/unixoid-challenge/bin/unixoid-challenge
--'  51  0  ~/Code/unixoid-challenge/lib/unixoid.rb
--'  2  0  ~/Code/unixoid-challenge/lib/unixoid.rb
--'  9  12  ~/Code/unixoid-challenge/lib/unixoid.rb
+-'  3  0  ~/Code/unixoid-challenge/lib/unixoid.rb
 -'  11  24  ~/Code/unixoid-challenge/spec/unixoid/challenge_spec.rb
--'  8  12  ~/Code/unixoid-challenge/lib/unixoid.rb
 -'  19  8  ~/Code/unixoid-challenge/spec/unixoid/rspec_spec.rb
 -'  1  0  ~/Code/unixoid-challenge/spec/unixoid/rspec_spec.rb
 -'  22  4  ~/Code/unixoid-challenge/spec/unixoid/rspec_spec.rb
 -'  9  0  ~/Code/unixoid-challenge/spec/unixoid/rspec_spec.rb
 -'  17  7  ~/Code/unixoid-challenge/spec/unixoid/rspec_spec.rb
 -'  16  0  ~/Code/unixoid-challenge/spec/unixoid/rspec_spec.rb
--'  20  21  ~/Code/unixoid-challenge/spec/unixoid/rspec_spec.rb
--'  9  8  ~/Code/unixoid-challenge/lib/unixoid/runner.rb
--'  1  0  ~/Code/unixoid-challenge/lib/unixoid/runner.rb
--'  3  14  ~/test.rb
--'  1  3  ~/test.rb
--'  5  1  ~/test.rb
--'  1  0  ~/Desktop/Heroku and Postgres.mov
--'  3  0  ~/Code/angular/.buildpacks
--'  1  0  ~/Code/angular/.buildpacks
--'  6  23  ~/Code/angular/config.ru
--'  1  0  ~/Code/angular/config.ru
--'  4  11  ~/Code/angular/Gemfile
--'  1  0  ~/Code/angular/Gemfile
--'  1  0  ~/Code/Walkthroughs/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/Walkthroughs/.git/MERGE_MSG
--'  6  41  ~/Code/node-stream/program.js
--'  10  33  ~/Code/node-stream/program.js
--'  1  0  ~/Code/node-stream/program.js
--'  8  12  ~/Code/node-stream/program.js
--'  2  17  ~/.homesick/repos/pickled-vim/home/.vim/snippets/javascript.snippets
--'  4  0  ~/.homesick/repos/pickled-vim/home/.vim/snippets/javascript.snippets
--'  10  0  ~/.homesick/repos/pickled-vim/home/.vim/NERD_tree_2
--'  20  2  ~/.homesick/repos/pickled-vim/home/.vim/NERD_tree_2
--'  1  0  ~/.homesick/repos/pickled-vim/home/.vim/NERD_tree_2
--'  20  2  ~/.homesick/repos/pickled-vim/home/.vim/NERD_tree_1
--'  1  0  ~/.homesick/repos/pickled-vim/home/.vim/NERD_tree_1
--'  295  49  ~/.vimrc
--'  1  0  ~/Code/temp_yelp/:q
--'  5  10  ~/Code/temp_yelp/app/controllers/restaurants_controller.rb
--'  1  0  ~/Code/temp_yelp/app/controllers/restaurants_controller.rb
--'  1  0  ~/Code/temp_yelp/config/boot.rb
--'  1  0  ~/Code/temp_yelp/__Tag_List__
--'  3  0  ~/Code/temp_yelp/__Tag_List__
--'  2  0  ~/Code/temp_yelp/__Tag_List__
--'  2  2  ~/Code/temp_yelp/app/controllers/reviews_controller.rb
--'  1  0  ~/Code/temp_yelp/app/controllers/reviews_controller.rb
--'  4  0  ~/Code/__Tag_List__
--'  2  0  ~/Code/__Tag_List__
--'  3  0  ~/Code/course/pills/mvc.md
--'  3  0  ~/Code/course/pills.md
--'  1  0  ~/Code/course/pills.md
--'  294  1  ~/.vimrc
--'  1  0  ~/.vimrc
--'  526  43  ~/.vimrc
--'  1  6  ~/blah.rb
--'  1  0  ~/Code/temp_yelp/program.js
--'  1  0  ~/program.js
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/program.js
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/program.js
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/program.js
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/temp_yelp/program.js
--'  1  0  ~/program.js
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/program.js
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
--'  1  0  ~/Code/course/.git/COMMIT_EDITMSG
+-'  56  10  ~/Code/unixoid-challenge/lib/unixoid/controller.rb
+-'  70  0  ~/Code/unixoid-challenge/lib/unixoid/controller.rb
+-'  3  0  ~/Code/unixoid-challenge/lib/unixoid/controller.rb
+-'  2  0  ~/Code/unixoid-challenge/lib/unixoid/controller.rb
+-'  1  27  ~/Code/unixoid-challenge/lib/unixoid.rb
+-'  2  0  ~/Code/unixoid-challenge/lib/unixoid.rb
+-'  10  0  ~/Code/unixoid-challenge/lib/unixoid.rb
+-'  11  8  ~/Code/unixoid-challenge/lib/unixoid.rb
+-'  8  0  ~/Code/unixoid-challenge/challenge_spec.rb
+-'  1  0  ~/Code/unixoid-challenge/challenge_spec.rb
+-'  1  0  ~/Code/unixoid-challenge/[Vundle] Installer
+-'  5  0  ~/Code/unixoid-challenge/challenge_spec.rb
+-'  7  0  ~/Code/unixoid-challenge/challenge_spec.rb
+-'  2  13  ~/Code/unixoid-challenge/foo.sh
+-'  1  14  ~/Code/unixoid-challenge/foo.sh
+-'  12  16  ~/.vimrc
+-'  12  4  ~/Code/unixoid-challenge/lib/unixoid/colorize.rb
+-'  14  10  ~/Code/unixoid-challenge/lib/unixoid/colorize.rb
+-'  1  0  ~/Code/unixoid-challenge/lib/unixoid/colorize.rb
+-'  13  2  ~/Code/unixoid-challenge/lib/unixoid/colorize.rb
+-'  12  30  ~/Code/unixoid-challenge/spec/unixoid_spec.rb
+-'  1  0  ~/Code/unixoid-challenge/spec/unixoid_spec.rb
 
 # History of marks within files (newest to oldest):
 
-> ~/.rspec
-	"	2	0
-	^	2	1
-	.	2	1
-	+	1	7
-	+	2	1
-
-> ~/.vimrc
-	"	315	1
-	^	315	2
-	.	315	2
-	+	554	0
-	+	329	0
-	+	328	0
-	+	305	0
-	+	287	22
-	+	304	27
-	+	305	0
-	+	1	61
-	+	307	31
-	+	308	2
-	+	316	0
-	+	315	35
-	+	313	0
-	+	315	2
-
-> ~/Code/unixoid-challenge/.vimrc
-	"	1	0
-
-> ~/Code/unixoid-challenge/lib/unixoid/challenge.rb
-	"	4	5
-	^	4	6
-	.	4	6
-	+	3	12
-	+	4	6
+> ~/Code/unixoid-challenge/spec/unixoid/runner_spec.rb
+	"	31	45
+	^	31	46
+	.	31	45
+	+	12	54
+	+	9	36
+	+	9	0
+	+	10	0
+	+	8	0
+	+	12	42
+	+	16	60
+	+	31	33
+	+	33	4
+	+	33	0
+	+	33	6
+	+	31	37
+	+	31	14
+	+	33	0
+	+	31	59
+	+	51	45
+	+	7	37
+	+	8	0
+	+	26	44
+	+	30	57
+	+	31	0
+	+	27	18
+	+	27	19
+	+	27	34
+	+	30	6
+	+	29	0
+	+	31	8
+	+	32	8
+	+	31	67
+	+	27	40
+	+	26	46
+	+	31	68
+	+	27	40
+	+	28	39
+	+	31	45
 
 > ~/Code/unixoid-challenge/ControlP
-	"	3	0
+	"	10	0
 	.	2	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
 	+	1	0
 	+	1	0
 	+	1	0
@@ -315,50 +383,342 @@ $
 	+	1	0
 	+	2	0
 
-> ~/Code/unixoid-challenge/lib/unixoid.rb
-	"	4	13
-	^	1	24
-	.	1	23
-	+	2	25
-	+	7	12
-	+	52	0
-	+	2	27
-	+	1	23
-
 > ~/Code/unixoid-challenge/lib/unixoid/runner.rb
-	"	10	28
-	^	10	29
-	.	10	28
-	+	10	0
-	+	10	19
-	+	9	25
-	+	10	28
+	"	20	10
+	^	14	35
+	.	14	34
+	+	12	0
+	+	12	19
+	+	11	25
+	+	12	0
+	+	4	0
+	+	1	17
+	+	4	0
+	+	12	43
+	+	14	0
+	+	15	0
+	+	22	45
+	+	23	24
+	+	18	21
+	+	19	51
+	+	14	29
+	+	15	26
+	+	14	34
+	j	15	10
+
+> ~/Code/unixoid-challenge/spec/unixoid/challenge_spec.rb
+	"	31	65
+	^	16	66
+	.	16	66
+	+	6	32
+	+	17	0
+	+	16	71
+	+	33	66
+	+	29	39
+	+	30	0
+	+	29	41
+	+	20	67
+	+	16	67
+	+	17	0
+	+	20	67
+	+	16	66
+
+> ~/Code/unixoid-challenge/lib/unixoid/github.rb
+	"	24	0
+
+> ~/Code/unixoid-challenge/lib/unixoid/challenge.rb
+	"	6	13
+	^	11	80
+	.	11	79
+	+	3	12
+	+	6	6
+	+	11	0
+	+	12	0
+	+	11	18
+	+	4	40
+	+	5	0
+	+	11	79
+
+> ~/Code/unixoid-challenge/unixoid-challenge.gemspec
+	"	6	24
+	.	5	0
+	+	20	52
+	+	12	37
+	+	4	24
+	+	4	2
+	+	4	0
+	+	5	0
+
+> ~/Code/unixoid-challenge/NERD_tree_1
+	"	9	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Code/unixoid-challenge/LICENSE
+	"	26	0
+	^	26	0
+	.	25	0
+	+	25	0
+
+> ~/Code/unixoid-challenge/.git/MERGE_MSG
+	"	1	0
 
 > ~/Code/unixoid-challenge/Gemfile
-	"	3	10
-	.	3	10
-	+	3	10
+	"	4	0
+	^	4	0
+	.	4	0
+	+	5	0
+	+	3	7
+	+	4	0
 
-> ~/Code/unixoid-challenge/spec/unixoid/runner_spec.rb
+> ~/Code/unixoid-challenge/Gemfile.lock
+	"	1	0
+
+> ~/Code/unixoid-challenge/commands.txt
+	"	1	0
+
+> ~/Code/unixoid-challenge/lib/unixoid.rb
+	"	1	27
+	^	1	28
+	.	1	27
+	+	3	25
+	+	9	12
+	+	10	0
+	+	3	27
+	+	2	23
+	+	6	26
+	+	10	73
+	+	10	53
+	+	10	78
+	+	10	0
+	+	10	0
+	+	10	22
+	+	10	0
+	+	10	26
+	+	10	0
+	+	10	24
+	+	10	6
+	+	10	25
+	+	10	0
+	+	10	0
+	+	10	0
+	+	10	0
+	+	10	0
+	+	10	5
+	+	10	6
+	+	11	10
+	+	10	0
+	+	10	2
+	+	10	0
+	+	10	23
+	+	10	0
+	+	11	13
+	+	10	8
+	+	11	0
+	+	10	80
+	+	10	78
+	+	10	0
+	+	10	14
+	+	10	25
+	+	11	0
+	+	10	0
+	+	2	24
+	+	1	27
+
+> ~/Code/unixoid-challenge/challenge_spec.rb
+	"	28	49
+	^	5	1
+	.	5	0
+	+	5	0
+
+> ~/.vimrc
+	"	355	0
+	^	350	1
+	.	350	0
+	+	581	0
+	+	356	0
+	+	349	0
+	+	316	0
+	+	298	22
+	+	315	27
+	+	316	0
+	+	1	61
+	+	318	31
+	+	319	2
+	+	338	0
+	+	326	35
+	+	324	0
+	+	326	1
+	+	338	0
+	+	334	0
+	+	325	27
+	+	8	0
+	+	6	56
+	+	11	0
+	+	9	0
+	+	11	40
+	+	10	0
+	+	11	0
+	+	334	0
+	+	326	2
+	+	328	0
+	+	326	29
+	+	327	0
+	+	326	2
+	+	326	1
+	+	337	0
+	+	11	0
+	+	5	10
+	+	12	38
+	+	12	0
+	+	10	0
+	+	9	0
+	+	10	16
+	+	12	0
+	+	351	0
+	+	350	0
+
+> ~/Code/unixoid-challenge/lib/unixoid/controller.rb
+	"	56	10
+	.	4	0
+	+	70	0
+	+	70	0
+	+	70	0
+	+	3	0
+	+	69	0
+	+	3	0
+	+	4	0
+
+> ~/Code/unixoid-challenge/bin/unixoid-challenge
+	"	6	0
+	^	7	19
+	.	7	18
+	+	6	0
+	+	7	18
+
+> ~/Code/unixoid-challenge/bin/unixoid-debug
+	"	6	0
+
+> ~/Code/unixoid-challenge/unixoid_results.txt
+	"	1	0
+
+> ~/Code/unixoid-challenge/unixoid.gemspec
+	"	15	28
+	^	11	28
+	.	11	28
+	+	3	23
+	+	7	87
+	+	13	53
+	+	10	32
+	+	12	0
+	+	11	28
+
+> ~/Code/unixoid-challenge/testlogfile.log
+	"	1	0
+
+> ~/Code/unixoid-challenge/lib/unixoid/challenge_result.rb
+	"	13	0
+
+> ~/dump.rdb
+	"	1	0
+
+> ~/.homesick/repos/pickled-vim/vim/syntax/django.vim
+	"	1	0
+
+> ~/.homesick/repos/pickled-vim/home/.vim/bundle/ControlP
+	"	1	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/.homesick/repos/pickled-vim/vendor/vim-pathogen/README.markdown
 	"	4	0
 
+> ~/.homesick/repos/pickled-vim/vendor/vim-pathogen/autoload/pathogen.vim
+	"	1	0
+
+> ~/Code/unixoid-challenge/[Fuzzyfinder]
+	"	1	5
+	^	1	6
+	.	1	5
+	+	1	5
+
+> ~/Code/unixoid-challenge/[Vundle] Installer
+	"	1	0
+	.	1	0
+	+	4	0
+	+	1	0
+
+> ~/Code/unixoid-challenge/foo.sh
+	"	2	13
+	^	2	14
+	.	2	13
+	+	1	16
+	+	1	0
+	+	2	13
+
+> ~/Code/unixoid-challenge/lib/unixoid/colorize.rb
+	"	12	4
+	^	12	5
+	.	13	0
+	+	1	0
+	+	13	0
+	+	3	0
+	+	14	0
+	+	13	0
+	+	13	0
+
 > ~/Code/unixoid-challenge/spec/unixoid_spec.rb
-	"	10	30
+	"	12	30
 	^	10	31
 	.	10	30
 	+	10	30
 
-> ~/Code/unixoid-challenge/spec/unixoid/challenge_spec.rb
-	"	11	24
-	^	6	32
-	.	17	0
-	+	6	32
-	+	17	0
-
-> ~/Code/unixoid-challenge/bin/unixoid-challenge
-	"	7	0
-	.	6	0
+> /private/tmp/delegate.rb
+	"	20	13
+	^	20	14
+	.	20	13
+	+	3	0
+	+	3	12
+	+	10	0
+	+	10	23
+	+	21	0
+	+	16	0
+	+	15	8
+	+	12	0
+	+	12	6
 	+	6	0
+	+	4	0
+	+	1	21
+	+	8	0
+	+	16	15
+	+	20	16
+	+	7	16
+	+	12	0
+	+	20	13
+
+> ~/.homesick/repos/pickled-vim/home/.vim/[Vundle] Installer
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/.git/MERGE_MSG
+	"	1	0
+
+> ~/.rspec
+	"	2	0
+	^	2	1
+	.	2	1
+	+	1	7
+	+	2	1
+
+> ~/Code/unixoid-challenge/.vimrc
+	"	1	0
 
 > ~/Code/unixoid-challenge/spec/unixoid/rspec_spec.rb
 	"	19	8
